@@ -3,5 +3,5 @@
         "*": false
     },
     "github.copilot.editor.enableAutoCompletions": false,
-    "chat.disableAIFeatures": true
+    "chat.disableAIFeatures": false
 }
