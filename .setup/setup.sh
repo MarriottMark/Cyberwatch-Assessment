@@ -20,8 +20,7 @@ mv *.html templates/ 2>/dev/null
 touch static/css/styles.css
 touch static/icons/icon-192.png static/icons/icon-512.png
 #TO DO
-#make the manifest.json file in the static folder
-#make the service-worker.js file in the static/js folder
-
+touch static/js/service-worker.js
+touch static/mainfest.json
 
 echo "✅ Project Ready! Use 'ls -R' to verify."
