@@ -1,3 +1,11 @@
-logo {
+.logo {
     size: 200%;
+};
+
+h1{
+    background-color: aqua !important;
+};
+
+body {
+    background-color: aqua;
 }

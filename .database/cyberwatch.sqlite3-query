@@ -36,3 +36,8 @@
 -- UPDATE incidents
 -- SET inc_url = 'https://www.upguard.com/blog/how-did-the-optus-data-breach-happen'
 -- WHERE id = 1;
+
+
+-- TO DO: Write a query that shows all incidents of category broken access authentication
+
+-- SELECT * From incidents where vul_id = 1;

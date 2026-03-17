@@ -24,9 +24,21 @@ def incident_page(vul_id):
     # TASK 2: Fetch the Vulnerability Name for the heading (JOIN or separate query)
 
     # TASK 3: Fetch all Incidents linked to this vul_id, return incidents list
+ 
+    with engine.connect() as connect:
+        query = text('SELECT vul_name FROM vulnerabilities WHERE id = :vul_id')
+        vunrebilityname = connect.execute(query, {"vul_id":vul_id}).fetchone()
+
+
+    with engine.connect() as connect:
+        query = text('SELECT inc_name FROM incidents WHERE vul_id = :vul_id')
+        incidents = connect.execute(query, {"vul_id":vul_id}).fetchall()
+
+
+
     
     print(vul_id) #this is a print statement to help you understand what data is being returned
-    return render_template('incidents.html', vulnerability = vul_id)
+    return render_template('incidents.html', vulnerability = vunrebilityname, incidents = incidents)
 
 
 
