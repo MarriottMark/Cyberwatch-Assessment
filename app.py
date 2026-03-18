@@ -31,8 +31,8 @@ def incident_page(vul_id):
 
 
     with engine.connect() as connect:
-        query = text('SELECT inc_name FROM incidents WHERE vul_id = :vul_id')
-        incidents = connect.execute(query, {"vul_id":vul_id}).fetchall()
+        query = text('SELECT inc_name, inc_url, inc_year FROM incidents WHERE vul_id = :vul_id')
+        incidents = connect.execute(query, {"vul_id":vul_id}).mappings().all()
 
 
 
