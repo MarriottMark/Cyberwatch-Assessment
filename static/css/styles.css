@@ -1,11 +1,25 @@
-.logo {
-    size: 200%;
-};
+.custom-incidentsbg{
+    background-color: #a78db3;
+}
 
-h1{
-    background-color: aqua !important;
-};
+.custom-mainbg{
+    --bg-: #ffffff;
+}
 
 body {
-    background-color: aqua;
+    background-color: #c3c3c3;
 }
+
+.custom-head{
+    text-align: center;
+}
+
+.custom-button{
+    background-color: #7a048f;
+}
+
+.custom-button:hover{
+    background-color: #3b0b53;
+}
+
+
