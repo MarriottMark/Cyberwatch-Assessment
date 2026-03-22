@@ -13,6 +13,9 @@ body {
 
 .custom-head{
     text-align: center;
+    /* background-color: #ffffff; */
+    padding-left: 2px;
+    padding-right: 2px;
 }
 
 .custom-button{
