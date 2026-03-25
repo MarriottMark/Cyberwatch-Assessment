@@ -59,10 +59,7 @@ def create_incident():
     inc_year = request.form['inc_year']
 
     with engine.connect() as connect:
-        query = text("""
-            INSERT INTO incidents (vul_id, inc_name, inc_url, inc_year)
-            VALUES (:vul_id, :inc_name, :inc_url, :inc_year)
-        """)
+        query = text(" INSERT INTO incidents (vul_id, inc_name, inc_url, inc_year) VALUES (:vul_id, :inc_name, :inc_url, :inc_year)")
         connect.execute(query, {
             "vul_id": vul_id,
             "inc_name": inc_name,
