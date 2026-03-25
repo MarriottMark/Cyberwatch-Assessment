@@ -42,10 +42,35 @@ def incident_page(vul_id):
     return render_template('incidents.html', vulnerability = vunrebilityname, incidents = incidents)
 
 
-@app.route('/add-incident', methods=['GET', 'POST'])
+@app.route('/add-incident', methods=['GET'])
 def add_incident():
-    
-    return render_template('add-incident.html')
+    with engine.connect() as connect:
+        query = text("SELECT id, vul_name FROM vulnerabilities")
+        vulnerabilities = connect.execute(query).fetchall()
 
+    return render_template('add-incident.html', vulnerabilities=vulnerabilities)
+
+
+@app.route('/incidents', methods=['POST'])
+def create_incident():
+    vul_id = request.form['vul_id']
+    inc_name = request.form['inc_name']
+    inc_url = request.form['inc_url']
+    inc_year = request.form['inc_year']
+
+    with engine.connect() as connect:
+        query = text("""
+            INSERT INTO incidents (vul_id, inc_name, inc_url, inc_year)
+            VALUES (:vul_id, :inc_name, :inc_url, :inc_year)
+        """)
+        connect.execute(query, {
+            "vul_id": vul_id,
+            "inc_name": inc_name,
+            "inc_url": inc_url,
+            "inc_year": inc_year
+        })
+        connect.commit()
+
+    return redirect(url_for('add_incident'))
 
 app.run(debug=True, reloader_type='stat', port=5000)

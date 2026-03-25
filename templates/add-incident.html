@@ -1,11 +1,43 @@
 {% extends 'base.html' %}
 
 {% block heading %}
-Add an incident
+Add an Incident
 {% endblock %}
 
 {% block content %}
-<form action = "/incidents" method="POST">
-    
-</form>
+<div class="container mt-4">
+    <form action="/incidents" method="POST">
+        
+        <div class="mb-3">
+            <label for="vul_id" class="form-label">Vulnerability</label>
+            <select name="vul_id" id="vul_id" class="form-select" required>
+                <option value="" selected disabled>Select a vulnerability</option>
+                {% for vulnerability in vulnerabilities %}
+                    <option value="{{ vulnerability.id }}">
+                        {{ vulnerability.vul_name }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="inc_name" class="form-label">Incident Name</label>
+            <input type="text" name="inc_name" id="inc_name" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="inc_url" class="form-label">Incident URL</label>
+            <input type="url" name="inc_url" id="inc_url" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="inc_year" class="form-label">Incident Year</label>
+            <input type="number" name="inc_year" id="inc_year" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-warning w-100">
+            Submit
+        </button>
+    </form>
+</div>
 {% endblock %}
