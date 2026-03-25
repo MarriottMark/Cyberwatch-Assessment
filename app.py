@@ -6,6 +6,7 @@ app = Flask(__name__)
 engine = create_engine('sqlite:///.database/cyberwatch.db') #link to the cyberwatch database here
 
 #route for index.html
+
 @app.route('/')
 def home():
     
@@ -40,6 +41,11 @@ def incident_page(vul_id):
     print(vul_id) #this is a print statement to help you understand what data is being returned
     return render_template('incidents.html', vulnerability = vunrebilityname, incidents = incidents)
 
+
+@app.route('/add-incident', methods=['GET', 'POST'])
+def add_incident():
+    
+    return render_template('add-incident.html')
 
 
 app.run(debug=True, reloader_type='stat', port=5000)

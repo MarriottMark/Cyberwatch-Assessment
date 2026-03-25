@@ -7,13 +7,15 @@
 }
 
 body {
-    background-image: url('/static/images/HB.avif');
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),
+        url('/static/images/HB.avif');
     background-color: #ebebeb;
 }
 
+
 .custom-head{
     text-align: center;
-    /* background-color: #ffffff; */
     padding-left: 2px;
     padding-right: 2px;
 }
@@ -26,4 +28,13 @@ body {
     background-color: #3b0b53;
 }
 
+.logo{
+    opacity: 100%;
 
+}
+
+.Tunabtn{
+    align-content: center;
+    text-align: center;
+    size: 50%;
+}
