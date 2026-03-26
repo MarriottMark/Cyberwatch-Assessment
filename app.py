@@ -70,4 +70,8 @@ def create_incident():
 
     return redirect(url_for('add_incident'))
 
+@app.route('/privacy', methods=['GET'])
+def privacy():
+    return render_template('privacy.html')
+
 app.run(debug=True, reloader_type='stat', port=5000)
