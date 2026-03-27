@@ -9,6 +9,12 @@
         <link rel="manifest" href="/static/manifest.json">
 
     </head>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/static/js/service-worker.js')
+                .then(() => console.log('Service Worker Registered'));
+        }
+    </script>
     <body class="body" role="main">
         <div class="container-fluid">
             <div class="row align-items-center">
