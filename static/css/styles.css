@@ -25,12 +25,12 @@ body {
     padding-right: 2px;
 }
 
-.custom-button{
-    background-color: #7a048f;
+.custom-btn{
+    background-color: #dc9300;
 }
 
-.custom-button:hover{
-    background-color: #3b0b53;
+.custom-btn:hover{
+    background-color: #6f6218;
 }
 
 .logo {
@@ -48,4 +48,8 @@ body {
 
 .text2{
     text-align: center;
+}
+
+.text-ctm{
+    color: #000000;
 }
