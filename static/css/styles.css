@@ -28,12 +28,13 @@ body {
     background-color: #3b0b53;
 }
 
-.logo{
+.logo {
     opacity: 100%;
     max-height: 60px;
+    max-width: 100%;
     width: auto;
+    height: auto;
 }
-
 .Tunabtn{
     align-content: center;
     text-align: center;
