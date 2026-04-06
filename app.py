@@ -74,4 +74,31 @@ def create_incident():
 def privacy():
     return render_template('privacy.html')
 
+
+@app.route('/fulllist.html')
+def fulllist():
+    year = request.args.get('year', '').strip()
+    error_message = None
+
+    with engine.connect() as connection:
+        if year == '':
+            query = text('SELECT * FROM incidents ORDER BY inc_year DESC;')
+            result = connection.execute(query).fetchall()
+
+        elif year.isdigit() and 1900 <= int(year) <= 2100:
+            query = text('SELECT * FROM incidents WHERE inc_year = :year ORDER BY inc_year DESC;')
+            result = connection.execute(query, {"year": int(year)}).fetchall()
+
+        else:
+            result = []
+            error_message = "Please enter a valid year between 1900 and 2100."
+
+    return render_template(
+        'fulllist.html',
+        incidents=result,
+        selected_year=year,
+        error_message=error_message
+    )
+
+
 app.run(debug=True, reloader_type='stat', port=5000)
