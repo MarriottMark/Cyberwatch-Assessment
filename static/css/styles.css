@@ -53,3 +53,14 @@ body {
 .text-ctm{
     color: #000000;
 }
+
+.inc-btn{
+    background-color: #dc9300;
+    padding-bottom: 5px;
+    padding-left: 10px;
+
+}
+
+.inc-btn:hover{
+    background-color: #784d03;
+}

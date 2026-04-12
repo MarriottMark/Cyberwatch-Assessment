@@ -75,7 +75,7 @@ def privacy():
     return render_template('privacy.html')
 
 
-@app.route('/fulllist.html')
+@app.route('/fulllist.html') #full-list's sql queries that allow it to filter the incidents by year
 def fulllist():
     year = request.args.get('year', '').strip()
     error_message = None
@@ -93,12 +93,7 @@ def fulllist():
             result = []
             error_message = "Please enter a valid year between 1900 and 2100."
 
-    return render_template(
-        'fulllist.html',
-        incidents=result,
-        selected_year=year,
-        error_message=error_message
-    )
+    return render_template('fulllist.html', incidents=result, selected_year=year, error_message=error_message)
 
 
 app.run(debug=True, reloader_type='stat', port=5000)
