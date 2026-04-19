@@ -1,8 +1,10 @@
 {
     "name": "Cyberwatch",
     "short_name": "Cyberwatch",
-    "start_url": "/index.html",
+    "start_url": "/",
     "display": "standalone",
+    "theme_color": "#dc9300",
+    "background_color": "#ebebeb",
 
     "icons": [
     {
