@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect, url_for
+from flask import Flask, request, render_template, redirect, url_for, send_from_directory
 from sqlalchemy import create_engine, text
 
 app = Flask(__name__)
@@ -75,6 +75,16 @@ def privacy():
     return render_template('privacy.html')
 
 
+@app.route('/offline', methods=['GET'])
+def offline():
+    return render_template('offline.html')
+
+
+@app.route('/service-worker.js')
+def service_worker():
+    return send_from_directory('static/js', 'service-worker.js')
+
+
 @app.route('/fulllist.html') #full-list's sql queries that allow it to filter the incidents by year
 def fulllist():
     year = request.args.get('year', '').strip()
@@ -95,5 +105,4 @@ def fulllist():
 
     return render_template('fulllist.html', incidents=result, selected_year=year, error_message=error_message)
 
-
-app.run(debug=True, reloader_type='stat', port=5000)
+app.run(debug=True, reloader_type='stat', port=5001)
